@@ -69,6 +69,7 @@
     ghostty
     neovim
     git
+    gh
     wget
   ];
 
