@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -38,13 +39,16 @@
     isNormalUser = true;
     description = "Bradley Wood";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [];
   };
 
-#  services.displayManager.sddm = {
-#    enable = true;
-#    wayland.enable = true;
-#  };
+  nixpkgs.config.allowUnfree = true;
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
   programs.hyprland = {
     enable = true;
@@ -57,20 +61,59 @@
     extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    EDITOR = "vim";
+  };
 
-  nixpkgs.config.allowUnfree = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
 
+    shellAliases = {
+      update = "sudo nixos-rebuild switch -I nixos-config=$HOME/.nixconfig/configuration.nix";
+      config = "/run/current-system/sw/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+    };
+
+    histSize = 10000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = [
+      "HIST_IGNORE_ALL_DUPS"
+    ];
+
+    interactiveShellInit = ''
+      bindkey -v
+      export KEYTIMEOUT=1
+    '';
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = false;
+  };
+
+  programs.waybar = {
+    enable = true;
+  };
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     kitty
     ghostty
-    neovim
+    #neovim
+    #lua-language-server
+    ripgrep
+    gcc
     git
     gh
     wget
+    google-chrome
+    wofi
+    pkgs.nerd-fonts.fira-code
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -81,7 +124,30 @@
   #   enableSSHSupport = true;
   # };
 
-  services.openssh.enable = true;
+  services.openssh ={
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PasswordAuthentication = true;
+      PermitRootLogin = "no";
+      AllowUsers = [ "bradley" ];
+      MaxAuthTries = 3;
+    };
+    ports = [ 2270 ];
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          capslock = "escape";
+          escape = "capslock";
+        };
+      };
+    };
+  };
 
   system.stateVersion = "26.05"; # Did you read the comment?
 
