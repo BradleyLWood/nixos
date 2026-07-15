@@ -73,8 +73,9 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      update = "sudo nixos-rebuild switch -I nixos-config=$HOME/.nixconfig/configuration.nix";
       config = "${lib.getExe pkgs.git} --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
+      v = "nvim";
+
     };
 
     histSize = 10000;
@@ -102,6 +103,8 @@
         vimcmd_replace_symbol = "[<](bold purple)";
         vimcmd_replace_one_symbol = "[<](bold purple)";
       };
+      format = "$directory$line_break$character";
+      right_format = " $docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig$git_branch$git_commit$git_state$git_metrics$git_status";
     };
   };
 
@@ -186,6 +189,10 @@
     enable = true;
   };
   
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -201,16 +208,15 @@
     wget
     google-chrome
     wofi
-    pkgs.nerd-fonts.fira-code
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   services.openssh ={
     enable = true;
@@ -237,7 +243,7 @@
     };
   };
 
-  system.stateVersion = "26.05"; # Did you read the comment?
+  system.stateVersion = "26.05";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
