@@ -4,11 +4,31 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      
     ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    # Modesetting is required for most modern Wayland compositors (e.g., Hyprland, GNOME)
+    modesetting.enable = true;
+
+    # Nvidia power management. Required for suspend/resume.
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    open = false;
+
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+  };
 
   networking.hostName = "paconix"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -71,23 +91,8 @@
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      config = "${lib.getExe pkgs.git} --git-dir=$HOME/.dotfiles/ --work-tree=$HOME";
-      v = "nvim";
-
-    };
-
-    histSize = 10000;
-    histFile = "$HOME/.zsh_history";
-    setOptions = [
-      "HIST_IGNORE_ALL_DUPS"
-    ];
-
     interactiveShellInit = ''
-      export KEYTIMEOUT=1
-      bindkey -v
-      bindkey '^L' 'autosuggest-accept'
+      source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
     '';
   };
 
@@ -108,83 +113,6 @@
     };
   };
 
-  programs.tmux = {
-    enable = true;
-    escapeTime = 0;
-    clock24 = false;
-    extraConfig = ''
-      set -g base-index 1
-      set -g pane-base-index 1
-      
-      set -g set-titles on
-      set -g set-titles-string '#{session_name} • #{window_index} • #{pane_title}'
-      set -g automatic-rename on
-      set -g automatic-rename-format '#{b:pane_current_path}'
-      
-      set -g default-terminal "screen-256color"
-      set -g default-shell ${pkgs.zsh}/bin/zsh
-      set -g default-command ${pkgs.zsh}/bin/zsh
-      set -ga terminal-overrides ",xterm-256color:Tc"
-
-      set -g detach-on-destroy off
-
-      set-window-option -g mode-keys vi
-      bind -T copy-mode-vi v send-keys -X begin-selection
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
-      bind p paste-buffer
-
-      unbind C-b
-      set -g prefix C-space
-      bind space send-prefix
-
-      set-window-option -g mode-keys vi
-      bind -T copy-mode-vi v send-keys -X begin-selection
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel
-      bind p paste-buffer
-
-      bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
-
-      bind -r h previous-window
-      bind -r j switch-client -n
-      bind -r k switch-client -p
-      bind -r l next-window
-      bind -r C-h select-pane -L
-      bind -r C-j select-pane -D
-      bind -r C-k select-pane -U
-      bind -r C-l select-pane -R
-      bind -r M-h resize-pane -L 5
-      bind -r M-j resize-pane -D 5
-      bind -r M-k resize-pane -U 5
-      bind -r M-l resize-pane -R 5
-
-      unbind s
-      unbind v
-      bind s split-window -h -c "#(pane_current_path)"
-      bind v split-window -v -c "#(pane_current_path)"
-
-      bind -r C-Left swap-window -t -1 \; select-window -t -1
-      bind -r C-Right swap-window -t +1 \; select-window -t +1
-
-      set -g status-position top
-
-      set -g status-left-length 100
-      set -g status-left "#[fg=blue,bg=#1e1e2e]  #[fg=#1e1e2e,bg=blue] #h │ #S #[fg=blue,bg=#1e1e2e]"
-      set -g status-left-style "bg=blue,fg=black"
-
-      set -g status-justify centre
-      set -g status-style "bg=default"
-      setw -g window-status-current-format '#[bold]#[fg=#cba6f7,bg=#1e1e2e]█#[fg=black,bg=#cba6f7]#I #W#[fg=#cba6f7,bg=#1e1e2e]█'
-      setw -g window-status-format ' #I #W '
-      setw -g window-status-separator ' '
-      setw -g window-status-style "bg=#1e1e2e"
-      setw -g window-status-current-style "bg=#cba6f7,fg=black"
-
-      set -g status-right-length 100
-      set -g status-right "#[fg=blue, bg=default] #[fg=black, bg=blue] %m/%d │ %I:%M %p #[fg=blue, bg=default]  "
-      set -g status-right-style "bg=default,fg=blue"
-    '';
-  };
-
   programs.waybar = {
     enable = true;
   };
@@ -197,11 +125,17 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    tmux
+    zsh-abbr
     kitty
     ghostty
+    eza
+    zoxide
+    fzf
     #neovim
     #lua-language-server
     ripgrep
+    fastfetch
     gcc
     git
     gh
