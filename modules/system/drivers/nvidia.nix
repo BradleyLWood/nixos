@@ -6,6 +6,7 @@
   flake.nixosModules.nvidiaDrivers = {
     pkgs,
     lib,
+    config,
     ...
   }: {
     # Enable OpenGL

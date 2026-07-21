@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.templateConfiguration = {...}: {
+  flake.nixosModules.paconixConfiguration = {...}: {
     networking = {
       hostName = "paconix";
     };

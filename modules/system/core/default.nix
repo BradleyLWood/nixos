@@ -12,7 +12,6 @@
       user
       bootloader
       nix
-      hardware
       locale
     ];
   in {
