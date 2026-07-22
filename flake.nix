@@ -10,7 +10,7 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    nvim.url = "github:BradleyLWood/nvim";
+    #nvim.url = "github:BradleyLWood/nvim";
 
     #otter-launcher = {
     #  url = "github:kuokuo123/otter-launcher";
