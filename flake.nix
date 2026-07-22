@@ -5,17 +5,17 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    hyprland = {
-      url = "git+https://git.voidarc.co.uk/voidarc/hypr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #hyprland = {
+    #  url = "";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     nvim.url = "github:BradleyLWood/nvim";
 
-    otter-launcher = {
-      url = "github:kuokuo123/otter-launcher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #otter-launcher = {
+    #  url = "github:kuokuo123/otter-launcher";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
