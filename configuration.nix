@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
@@ -109,7 +109,7 @@
         vimcmd_replace_one_symbol = "[<](bold purple)";
       };
       format = "$directory$line_break$character";
-      right_format = " $docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig$git_branch$git_commit$git_state$git_metrics$git_status";
+      right_format = " $git_branch$git_commit$git_state$git_metrics$git_status";
     };
   };
 
@@ -132,8 +132,7 @@
     eza
     zoxide
     fzf
-    #neovim
-    #lua-language-server
+    inputs.nvim.packages.${pkgs.system}.default
     ripgrep
     fastfetch
     gcc
