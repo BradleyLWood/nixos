@@ -102,6 +102,17 @@
     #  };
     #};
 
+    programs.git = {
+      enable = true;
+      config = {
+        credential = {
+          "https://github.com" = {
+            helper = "!${pkgs.github-cli}/bin/gh auth git-credential";
+          };
+        };
+      };
+    };
+
     # TODO move to desktop flake
     services.displayManager.sddm = {
       enable = true;
