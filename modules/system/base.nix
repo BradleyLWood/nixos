@@ -1,5 +1,5 @@
-{config, ...}: {
-  flake.modules.nixos.base = {pkgs}: {
+{ ...}: {
+  flake.modules.nixos.base = {config, pkgs, ...}: {
     nix.settings.experimental-features = ["nix-command" "flakes"];
     #nix.settings.auto-optimise-store = true;
     nixpkgs.config.allowUnfree = true;
@@ -72,7 +72,8 @@
       package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     };
 
-    networking.hostName = "paconix"; # Define your hostname.
+    # set in lib.mkHost
+    #networking.hostName = "paconix"; # Define your hostname.
     networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
     networking.networkmanager.enable = true;
@@ -91,12 +92,12 @@
       # TODO add git user info
     };
 
-    programs.zellij = {
-      enable = true;
-      settings = {
-        theme = "catppuccin-mocha";
-      };
-    };
+    #programs.zellij = {
+    #  enable = true;
+    #  settings = {
+    #    theme = "catppuccin-mocha";
+    #  };
+    #};
 
     # TODO move to desktop flake
     services.displayManager.sddm = {
