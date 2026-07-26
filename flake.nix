@@ -2,15 +2,14 @@
   description = "Master flake nix configuration";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     #hyprland = {
-    #  url = "";
+    #  url = "github:hyprwm/Hyprland";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    #nvim.url = "github:BradleyLWood/nvim";
+    nvim.url = "github:BradleyLWood/nvim";
 
     #otter-launcher = {
     #  url = "github:kuokuo123/otter-launcher";

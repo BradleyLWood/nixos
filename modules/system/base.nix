@@ -1,47 +1,14 @@
-{
-  self,
-  config,
-  inputs,
-  ...
-}: {
-  flake.nixosModules.core = {
-    pkgs,
-    lib
-  }: {
-  
-    imports = [ ./hardware-configuration.nix ];
-  
+{config, ...}: {
+  flake.modules.nixos.base = {pkgs}: {
+    nix.settings.experimental-features = ["nix-command" "flakes"];
+    #nix.settings.auto-optimise-store = true;
+    nixpkgs.config.allowUnfree = true;
+
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-  
-    # Enable OpenGL
-    hardware.graphics = {
-      enable = true;
-    };
-  
-    # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = [ "nvidia" ];
-  
-    hardware.nvidia = {
-      # Modesetting is required for most modern Wayland compositors (e.g., Hyprland, GNOME)
-      modesetting.enable = true;
-  
-      # Nvidia power management. Required for suspend/resume.
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-  
-      open = false;
-  
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
-    };
-  
-    networking.hostName = "paconix"; # Define your hostname.
-    networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  
-    networking.networkmanager.enable = true;
-  
+
     time.timeZone = "America/Denver";
-  
+
     i18n.defaultLocale = "en_US.UTF-8";
     i18n.extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
@@ -54,43 +21,102 @@
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
     };
-  
+
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      EDITOR = "vim";
+    };
+
+    # To search, run: $ nix search <package-name>
+    environment.systemPackages = with pkgs; [
+      vim
+      tmux
+      eza
+      fzf
+      zoxide
+      ripgrep
+      fastfetch
+      wget
+      git
+      gh
+
+      # TODO move these into other aspect sets
+      #zsh-abbr
+      #kitty
+      #ghostty
+      #neovim
+      #lua-language-server
+      #gcc
+      #google-chrome
+      #wofi
+    ];
+
+    # Enable OpenGL
+    hardware.graphics = {
+      enable = true;
+    };
+
+    # Load nvidia driver for Xorg and Wayland
+    services.xserver.videoDrivers = ["nvidia"];
+
+    hardware.nvidia = {
+      # Modesetting is required for most modern Wayland compositors (e.g., Hyprland, GNOME)
+      modesetting.enable = true;
+
+      # Nvidia power management. Required for suspend/resume.
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+
+      open = false;
+
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+    };
+
+    networking.hostName = "paconix"; # Define your hostname.
+    networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+
+    networking.networkmanager.enable = true;
+
+    # TODO move to desktop flake
     services.xserver.xkb = {
       layout = "us";
       variant = "";
     };
-  
+
     users.users."bradley" = {
       isNormalUser = true;
       description = "Bradley Wood";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
-      packages = with pkgs; [];
+      # TODO add git user info
     };
-  
-    nixpkgs.config.allowUnfree = true;
-  
+
+    programs.zellij = {
+      enable = true;
+      settings = {
+        theme = "catppuccin-mocha";
+      };
+    };
+
+    # TODO move to desktop flake
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
-  
+
+    # TODO move to desktop flake
     programs.hyprland = {
       enable = true;
       withUWSM = true;
       xwayland.enable = true;
     };
-  
+
+    # TODO move to desktop flake
     xdg.portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+      extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     };
-  
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      EDITOR = "vim";
-    };
-  
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -100,7 +126,7 @@
         source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
       '';
     };
-  
+
     programs.starship = {
       enable = true;
       settings = {
@@ -114,41 +140,18 @@
           vimcmd_replace_one_symbol = "[<](bold purple)";
         };
         format = "$directory$line_break$character";
-        right_format = " $docker_context$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$zig$git_branch$git_commit$git_state$git_metrics$git_status";
+        right_format = " $git_branch$git_commit$git_state$git_metrics$git_status";
       };
     };
-  
+
     programs.waybar = {
       enable = true;
     };
-    
+
     fonts.packages = with pkgs; [
       nerd-fonts.fira-code
     ];
-  
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [
-      vim
-      tmux
-      zsh-abbr
-      kitty
-      ghostty
-      eza
-      zoxide
-      fzf
-      neovim
-      lua-language-server
-      ripgrep
-      fastfetch
-      gcc
-      git
-      gh
-      wget
-      google-chrome
-      wofi
-    ];
-  
+
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     programs.mtr.enable = true;
@@ -156,23 +159,23 @@
       enable = true;
       enableSSHSupport = true;
     };
-  
-    services.openssh ={
+
+    services.openssh = {
       enable = true;
       openFirewall = true;
       settings = {
         PasswordAuthentication = true;
         PermitRootLogin = "no";
-        AllowUsers = [ "bradley" ];
+        AllowUsers = ["bradley"];
         MaxAuthTries = 3;
       };
-      ports = [ 2270 ];
+      ports = [2270];
     };
-  
+
     services.keyd = {
       enable = true;
       keyboards.default = {
-        ids = [ "*" ];
+        ids = ["*"];
         settings = {
           main = {
             capslock = "escape";
@@ -181,11 +184,7 @@
         };
       };
     };
-  
+
     system.stateVersion = "26.05";
-  
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
-  
   };
 }
