@@ -1,7 +1,10 @@
-{ ...}: {
-  flake.modules.nixos.base = {config, pkgs, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.base = {
+    config,
+    pkgs,
+    ...
+  }: {
     nix.settings.experimental-features = ["nix-command" "flakes"];
-    #nix.settings.auto-optimise-store = true;
     nixpkgs.config.allowUnfree = true;
 
     boot.loader.systemd-boot.enable = true;
@@ -40,15 +43,15 @@
       git
       gh
 
+      inputs.nvim.packages.${pkgs.system}.default
+
       # TODO move these into other aspect sets
-      #zsh-abbr
-      #kitty
-      #ghostty
-      #neovim
-      #lua-language-server
+      zsh-abbr
+      kitty
+      ghostty
       #gcc
-      #google-chrome
-      #wofi
+      google-chrome
+      wofi
     ];
 
     # Enable OpenGL
