@@ -43,7 +43,10 @@
       git
       gh
 
+      # TODO move to development aspect
       inputs.nvim.packages.${pkgs.system}.default
+      inputs.self.packages.${pkgs.system}.opencode
+      inputs.self.packages.${pkgs.system}.ollama
 
       # TODO move these into other aspect sets
       zsh-abbr
