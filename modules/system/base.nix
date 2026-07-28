@@ -58,6 +58,10 @@
       #gcc
       google-chrome
       wofi
+      brightnessctl
+      hypridle
+      hyprlock
+      wlogout
     ];
 
     # Enable OpenGL
@@ -99,6 +103,13 @@
       extraGroups = ["networkmanager" "wheel"];
       shell = pkgs.zsh;
       # TODO add git user info
+    };
+
+    users.users."eliana" = {
+      isNormalUser = true;
+      description = "Eliana Wood";
+      extraGroups = ["networkmanager"];
+      shell = pkgs.zsh;
     };
 
     #programs.zellij = {
@@ -208,6 +219,11 @@
           };
         };
       };
+    };
+
+    services.libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
     };
 
     nix.gc = {
