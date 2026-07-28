@@ -42,6 +42,9 @@
       wget
       git
       gh
+      lazygit
+
+      inputs.herdr.packages.${pkgs.system}.default
 
       # TODO move to development aspect
       inputs.nvim.packages.${pkgs.system}.default
@@ -104,6 +107,10 @@
     #    theme = "catppuccin-mocha";
     #  };
     #};
+
+    programs.yazi = {
+      enable = true;
+    };
 
     programs.git = {
       enable = true;
