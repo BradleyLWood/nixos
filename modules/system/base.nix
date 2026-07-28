@@ -39,6 +39,8 @@
       zoxide
       ripgrep
       fastfetch
+      usbutils
+      lsof
       wget
       git
       gh
