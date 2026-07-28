@@ -47,11 +47,11 @@
       lazygit
 
       # TODO move to development aspect
-      inputs.nvim.packages.${pkgs.system}.default
-      inputs.self.packages.${pkgs.system}.opencode
-      inputs.self.packages.${pkgs.system}.ollama
+      inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.opencode
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.ollama
 
-      inputs.herdr.packages.${pkgs.system}.default
+      inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # TODO move these into other aspect sets
       zsh-abbr
