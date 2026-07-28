@@ -11,6 +11,11 @@
 
     nvim.url = "github:BradleyLWood/nvim";
 
+    herdr = {
+      url = "github:ogulcancelik/herdr/v0.7.5";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #otter-launcher = {
     #  url = "github:kuokuo123/otter-launcher";
     #  inputs.nixpkgs.follows = "nixpkgs";
