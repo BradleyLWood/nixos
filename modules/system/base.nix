@@ -45,6 +45,7 @@
       wget
       git
       gh
+      jujutsu
       lazygit
       devenv
 
