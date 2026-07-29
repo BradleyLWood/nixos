@@ -38,6 +38,7 @@
       fzf
       zoxide
       ripgrep
+      jq
       fastfetch
       usbutils
       lsof
@@ -45,6 +46,7 @@
       git
       gh
       lazygit
+      devenv
 
       # TODO move to development aspect
       inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}.default
