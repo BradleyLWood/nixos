@@ -26,17 +26,19 @@
     self,
     nixpkgs,
     ...
-  }: {
-    nixConfigurations.paconix = nixpkgs.lib.nixosSystem {
+  } @ inputs: {
+    nixosConfigurations.paconix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      speciatlArgs = {inherit inputs;};
       modules = [
-        ./hosts/paconix
+        ./modules/hosts/paconix
       ];
     };
-    nixConfigurations.taconix = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.taconix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      speciatlArgs = {inherit inputs;};
       modules = [
-        ./hosts/taconix
+        ./modules/hosts/taconix
       ];
     };
   };
