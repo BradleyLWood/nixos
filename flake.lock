@@ -124,11 +124,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1785340298,
-        "narHash": "sha256-Uk7XwwqWjVY3ItvM3xGBYr/LdHrde61kIHtgAK4v8JE=",
+        "lastModified": 1785707314,
+        "narHash": "sha256-pEljgFATTuW08Fp0hkY5Y4qQjzkEaKbN+QDlJ/1ozUY=",
         "owner": "BradleyLWood",
         "repo": "nvim",
-        "rev": "f9926e0c4f58eade261ea5c89b113ad4a4a2096e",
+        "rev": "036439c74e85a3369f80a5a973c2674b245a6162",
         "type": "github"
       },
       "original": {

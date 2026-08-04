@@ -1,6 +1,5 @@
-{
-  flake.modules.nixos.networking = {
-    networking.networkmanager.enable = true;
-    networking.firewall.enable = true;
-  };
+{...}: {
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
 }
