@@ -1,0 +1,12 @@
+{...}: {
+  imports = [
+    ./hardware_configuration.nix
+    ../../modules
+  ];
+
+  networking.hostName = "paconix";
+
+  services.custom.keyd.enable = true;
+  services.custom.sddm.enable = true;
+  services.custom.ssh.enable = true;
+}
