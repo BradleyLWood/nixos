@@ -478,7 +478,7 @@
         "type": "github"
       }
     },
-    "nvim-overlay": {
+    "nvim-bw": {
       "inputs": {
         "nixpkgs": "nixpkgs_2",
         "wrappers": "wrappers"
@@ -547,7 +547,7 @@
         "herdr": "herdr",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs",
-        "nvim-overlay": "nvim-overlay",
+        "nvim-bw": "nvim-bw",
         "otter-launcher": "otter-launcher"
       }
     },
@@ -605,7 +605,7 @@
     "wrappers": {
       "inputs": {
         "nixpkgs": [
-          "nvim-overlay",
+          "nvim-bw",
           "nixpkgs"
         ]
       },

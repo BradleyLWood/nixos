@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
@@ -42,7 +46,7 @@
     devenv
 
     # TODO move to development aspect
-    inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.nvim-bw.packages.${pkgs.stdenv.hostPlatform.system}.default
     #inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.opencode
     #inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.ollama
 

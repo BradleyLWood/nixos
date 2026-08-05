@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim-overlay.url = "github:BradleyLWood/nvim";
+    nvim-bw.url = "github:BradleyLWood/nvim";
 
     herdr = {
       url = "github:ogulcancelik/herdr/v0.7.5";
@@ -29,16 +29,16 @@
   } @ inputs: {
     nixosConfigurations.paconix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      speciatlArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
-        ./modules/hosts/paconix
+        ./hosts/paconix
       ];
     };
     nixosConfigurations.taconix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      speciatlArgs = {inherit inputs;};
+      specialArgs = { inherit inputs; };
       modules = [
-        ./modules/hosts/taconix
+        ./hosts/taconix
       ];
     };
   };
