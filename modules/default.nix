@@ -10,5 +10,8 @@
     ./system/networking.nix
 
     ./features/gnome.nix
+    ./features/hyprland.nix
+    ./features/terminal.nix
+    ./features/xdg.nix
   ];
 }
