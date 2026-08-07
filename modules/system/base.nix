@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
@@ -29,40 +28,8 @@
   # To search, run: $ nix search <package-name>
   environment.systemPackages = with pkgs; [
     vim
-    tmux
-    eza
-    fzf
-    zoxide
-    ripgrep
-    jq
-    fastfetch
-    usbutils
-    lsof
     wget
     git
-    gh
-    jujutsu
-    lazygit
-    devenv
-
-    # TODO move to development aspect
-    inputs.nvim-bw.packages.${pkgs.stdenv.hostPlatform.system}.default
-    #inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.opencode
-    #inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.ollama
-
-    inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # TODO move these into other aspect sets
-    zsh-abbr
-    kitty
-    ghostty
-    #gcc
-    google-chrome
-    wofi
-    brightnessctl
-    hypridle
-    hyprlock
-    wlogout
   ];
 
   # Enable OpenGL
@@ -105,14 +72,6 @@
     };
   };
 
-  programs.waybar = {
-    enable = true;
-  };
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
@@ -120,11 +79,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  #services.libinput = {
-  #  enable = true;
-  #  touchpad.naturalScrolling = true;
-  #};
 
   nix.gc = {
     automatic = true;

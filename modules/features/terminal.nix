@@ -18,6 +18,31 @@
           source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.zsh
         '';
       };
+
+      programs.yazi = {
+        enable = true;
+      };
+
+      environment.systemPackages = with pkgs; [
+        # some of these can be moved to a development module
+        devenv
+        eza
+        fastfetch
+        fzf
+        gh
+        jq
+        jujutsu
+        lazygit
+        lsof
+        ripgrep
+        tmux
+        usbutils
+        zoxide
+        zsh-abbr
+
+        inputs.nvim-bw.packages.${pkgs.stdenv.hostPlatform.system}.default
+        inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
     }
 
     (lib.mkIf config.features.custom.starship.enable {

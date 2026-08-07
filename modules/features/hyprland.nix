@@ -16,5 +16,15 @@
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     };
+
+    programs.waybar = {
+      enable = true;
+    };
+    environment.systemPackages = with pkgs; [
+      wofi
+      hypridle
+      hyprlock
+      wlogout
+    ];
   };
 }
