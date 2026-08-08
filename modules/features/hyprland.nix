@@ -25,6 +25,7 @@
       hypridle
       hyprlock
       wlogout
+      wpaperd
     ];
   };
 }

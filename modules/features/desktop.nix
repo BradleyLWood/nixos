@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -15,9 +16,12 @@
       touchpad.naturalScrolling = true;
     };
 
+    programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
+
     environment.systemPackages = with pkgs; [
       kitty
       ghostty
+      inputs.otter-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       google-chrome
       brightnessctl
     ];

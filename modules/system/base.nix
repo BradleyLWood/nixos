@@ -57,10 +57,6 @@
     shell = pkgs.zsh;
   };
 
-  programs.yazi = {
-    enable = true;
-  };
-
   programs.git = {
     enable = true;
     config = {
