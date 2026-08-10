@@ -1,8 +1,29 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./hardware_configuration.nix
     ../../modules
   ];
+
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
+
+  hardware.nvidia = {
+    # Modesetting is required for most modern Wayland compositors (e.g., Hyprland, GNOME)
+    modesetting.enable = true;
+
+    # Nvidia power management. Required for suspend/resume.
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+
+    open = false;
+
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+  };
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = ["nvidia"];
 
   networking.hostName = "paconix";
 
