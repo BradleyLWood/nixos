@@ -9,6 +9,7 @@
     ./system/networking.nix
 
     ./features/desktop.nix
+    ./features/devtools.nix
     ./features/gnome.nix
     ./features/hyprland.nix
     ./features/terminal.nix
