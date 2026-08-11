@@ -6,7 +6,6 @@
 
     ./system/audio.nix
     ./system/base.nix
-    ./system/boot.nix
     ./system/networking.nix
 
     ./features/desktop.nix
