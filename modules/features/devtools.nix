@@ -10,6 +10,7 @@
     environment.systemPackages = with pkgs; [
       devenv
       gh
+      git
       jq
       jujutsu
       lazygit
