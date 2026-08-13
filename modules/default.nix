@@ -3,6 +3,7 @@
     ./features/desktop.nix
     ./features/devtools.nix
     ./features/gnome.nix
+    ./features/helix.nix
     ./features/hyprland.nix
     ./features/starship.nix
     ./features/terminal.nix
