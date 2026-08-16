@@ -17,6 +17,8 @@
       gnome-tweaks
       gnomeExtensions.blur-my-shell
       gnomeExtensions.just-perfection
+      drawing
+      xournalpp
     ];
   };
 }

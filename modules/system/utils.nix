@@ -4,11 +4,14 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    btop
     eza
     fastfetch
     fzf
     lsof
+    navi
     ripgrep
+    tlrc
     tmux
     usbutils
     zoxide

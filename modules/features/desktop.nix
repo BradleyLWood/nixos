@@ -16,6 +16,8 @@
       touchpad.naturalScrolling = true;
     };
 
+    programs.dconf.enable = true;
+
     programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
 
     environment.systemPackages = with pkgs; [
@@ -24,6 +26,11 @@
       inputs.otter-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       google-chrome
       brightnessctl
+      (catppuccin-gtk.override {
+        accents = ["mauve"];
+        size = "compact";
+        variant = "mocha";
+      })
     ];
   };
 }

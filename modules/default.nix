@@ -1,10 +1,12 @@
 {
   imports = [
+    ./features/calibre.nix
     ./features/desktop.nix
     ./features/devtools.nix
     ./features/gnome.nix
     ./features/helix.nix
     ./features/hyprland.nix
+    ./features/obsidian.nix
     ./features/starship.nix
     ./features/terminal.nix
     ./features/xdg.nix
@@ -19,5 +21,6 @@
     ./system/base.nix
     ./system/networking.nix
     ./system/utils.nix
+    ./system/desktoputils.nix
   ];
 }
