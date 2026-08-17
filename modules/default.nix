@@ -9,6 +9,7 @@
     ./features/terminal.nix
     ./features/xdg.nix
     ./features/yazi.nix
+    ./features/zellij.nix
 
     ./services/keyd.nix
     ./services/sddm.nix

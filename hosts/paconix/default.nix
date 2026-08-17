@@ -52,4 +52,5 @@
   features.custom.starship.enable = true;
   features.custom.zsh.enable = true;
   features.custom.yazi.enable = true;
+  features.custom.zellij.enable = true;
 }
