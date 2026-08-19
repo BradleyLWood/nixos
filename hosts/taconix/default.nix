@@ -35,6 +35,7 @@
   features.custom.hyprland.enable = true;
   features.custom.obsidian.enable = true;
   features.custom.starship.enable = true;
+  features.custom.steam.enable = true;
   features.custom.zsh.enable = true;
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;

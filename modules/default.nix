@@ -7,7 +7,9 @@
     ./features/helix.nix
     ./features/hyprland.nix
     ./features/obsidian.nix
+    ./features/openscad.nix
     ./features/starship.nix
+    ./features/steam.nix
     ./features/terminal.nix
     ./features/xdg.nix
     ./features/yazi.nix
