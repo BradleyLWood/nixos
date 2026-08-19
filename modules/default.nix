@@ -14,6 +14,8 @@
     ./features/zellij.nix
 
     ./services/keyd.nix
+    ./services/fwupd.nix
+    ./services/greetd.nix
     ./services/sddm.nix
     ./services/ssh.nix
 

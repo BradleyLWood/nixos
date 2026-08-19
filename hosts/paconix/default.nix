@@ -41,7 +41,9 @@
   networking.hostName = "paconix";
 
   services.custom.keyd.enable = true;
-  services.custom.sddm.enable = true;
+  services.custom.fwupd.enable = true;
+  services.custom.greetd.enable = true;
+  services.custom.sddm.enable = false;
   services.custom.ssh.enable = true;
 
   system.custom.desktoputils.enable = true;

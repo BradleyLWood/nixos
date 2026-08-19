@@ -13,14 +13,16 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      gfxmodeEfi = "1920x1080";
+      gfxmodeEfi = "1600x1200";
     };
   };
 
   networking.hostName = "taconix";
 
   services.custom.keyd.enable = true;
-  services.custom.sddm.enable = true;
+  services.custom.fwupd.enable = true;
+  services.custom.greetd.enable = true;
+  services.custom.sddm.enable = false;
   services.custom.ssh.enable = true;
 
   system.custom.desktoputils.enable = true;
@@ -35,4 +37,5 @@
   features.custom.starship.enable = true;
   features.custom.zsh.enable = true;
   features.custom.yazi.enable = true;
+  features.custom.zellij.enable = true;
 }

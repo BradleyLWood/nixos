@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }: {
@@ -8,6 +9,7 @@
   config = lib.mkIf config.features.custom.zellij.enable {
     environment.systemPackages = with pkgs; [
       zellij
+      inputs.zjstatus.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }

@@ -16,6 +16,10 @@
       touchpad.naturalScrolling = true;
     };
 
+    security.polkit.enable = true;
+
+    services.accounts-daemon.enable = true;
+
     programs.dconf.enable = true;
 
     programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
