@@ -20,7 +20,7 @@
       settings = {
         default_session = {
           command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            ${pkgs.tuigreet}/bin/tuigreet \
               --sessions ${config.services.displayManager.sessionData.desktops}/share/xsessions:${config.services.displayManager.sessionData.desktops}/share/wayland-sessions \
               --remember \
               --remember-user-session \
