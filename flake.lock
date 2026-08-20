@@ -499,9 +499,12 @@
       "locked": {
         "lastModified": 1787070829,
         "narHash": "sha256-vXNVDVtvfiQuXthP0NHPFdNvvMTkGpx0UP8oddIWbNk=",
+        "lastModified": 1787135253,
+        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "0ae2bc1419c3f345984c2629e72e7a631820fa4d",
+        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
         "type": "github"
       },
       "original": {
@@ -549,11 +552,11 @@
         "wrappers": "wrappers"
       },
       "locked": {
-        "lastModified": 1786860746,
-        "narHash": "sha256-LNslcTk8/0i/3u6thQsyBuRkGQrYTk4jMbmJQq5LKos=",
+        "lastModified": 1787237571,
+        "narHash": "sha256-mA07ORNArpRRCquY4MDSAQL9yZWX3SeQdLcvD2Aun8k=",
         "owner": "BradleyLWood",
         "repo": "nvim",
-        "rev": "7a565de25f9a714e0dbee0fad1d6d46d28b927dc",
+        "rev": "2ab9b4b802bd954c143a62c541d7288e1a31c185",
         "type": "github"
       },
       "original": {
