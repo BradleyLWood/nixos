@@ -4,6 +4,11 @@
     ../../modules
   ];
 
+  boot.kernelParams = [
+    "video=DP-1:2560x1440@60"
+    "video=DVI-D-1:1440x900@60"
+  ];
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = false;
@@ -14,6 +19,7 @@
       efiSupport = true;
       device = "nodev";
       efiInstallAsRemovable = true;
+      gfxmodeEfi = "2560x1440";
     };
   };
 
@@ -43,6 +49,7 @@
   services.custom.keyd.enable = true;
   services.custom.fwupd.enable = true;
   services.custom.greetd.enable = true;
+  services.custom.kmscon.enable = true;
   services.custom.sddm.enable = false;
   services.custom.ssh.enable = true;
 

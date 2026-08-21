@@ -18,6 +18,7 @@
     ./services/keyd.nix
     ./services/fwupd.nix
     ./services/greetd.nix
+    ./services/kmscon.nix
     ./services/sddm.nix
     ./services/ssh.nix
 

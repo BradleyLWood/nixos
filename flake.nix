@@ -22,6 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hunk.url = "github:modem-dev/hunk";
+
     zjstatus = {
       url = "github:dj95/zjstatus";
     };

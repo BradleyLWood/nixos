@@ -15,6 +15,7 @@
       jujutsu
       lazygit
       inputs.nvim-bw.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.hunk.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
