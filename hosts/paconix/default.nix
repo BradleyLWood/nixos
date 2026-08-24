@@ -55,6 +55,7 @@
 
   system.custom.desktoputils.enable = true;
 
+  features.custom.bitwarden.enable = true;
   features.custom.calibre.enable = true;
   features.custom.desktop.enable = true;
   features.custom.devtools.enable = true;

@@ -24,6 +24,8 @@
 
     hunk.url = "github:modem-dev/hunk";
 
+    eilmeldung.url = "github:christo-auer/eilmeldung";
+
     zjstatus = {
       url = "github:dj95/zjstatus";
     };
