@@ -5,16 +5,21 @@
     ./features/desktop.nix
     ./features/devtools.nix
     ./features/gnome.nix
+    ./features/diskutils.nix
     ./features/helix.nix
     ./features/hyprland.nix
+    ./features/neomutt.nix
     ./features/obsidian.nix
     ./features/openscad.nix
+    ./features/printing.nix
+    ./features/prismlauncher.nix
     ./features/starship.nix
     ./features/steam.nix
     ./features/terminal.nix
     ./features/xdg.nix
     ./features/yazi.nix
     ./features/zellij.nix
+
     ./services/fwupd.nix
     ./services/greetd.nix
     ./services/keyd.nix

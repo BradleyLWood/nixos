@@ -7,16 +7,17 @@
   options.features.custom.yazi.enable = lib.mkEnableOption "Enable yazi";
   config = lib.mkIf config.features.custom.yazi.enable {
     environment.systemPackages = with pkgs; [
-      yazi
       ffmpeg
+      fzf
+      imagemagick
       jq
       poppler
-      ripgrep
-      fzf
-      zoxide
+      rclone
       resvg
-      imagemagick
+      ripgrep
       wl-clipboard
+      yazi
+      zoxide
     ];
   };
 }

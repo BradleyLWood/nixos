@@ -11,7 +11,7 @@
     fzf
     lsof
     navi
-    neomutt
+    procs
     ripgrep
     tlrc
     tmux

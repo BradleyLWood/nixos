@@ -51,10 +51,14 @@
   features.custom.desktop.enable = true;
   features.custom.devtools.enable = true;
   features.custom.gnome.enable = false;
+  features.custom.diskutils.enable = true;
   features.custom.helix.enable = true;
   features.custom.hyprland.enable = true;
+  features.custom.neomutt.enable = true;
   features.custom.obsidian.enable = true;
   features.custom.openscad.enable = true;
+  features.custom.prismlauncher.enable = true;
+  features.custom.printing.enable = true;
   features.custom.starship.enable = true;
   features.custom.steam.enable = true;
   features.custom.yazi.enable = true;

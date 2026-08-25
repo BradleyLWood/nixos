@@ -49,7 +49,7 @@
     description = "Bradley Wood";
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
-    # TODO add git user info
+    linger = true; # for background  timers/services
   };
 
   users.users."eliana" = {
