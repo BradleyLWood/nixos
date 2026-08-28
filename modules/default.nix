@@ -15,18 +15,17 @@
     ./features/xdg.nix
     ./features/yazi.nix
     ./features/zellij.nix
-
-    ./services/keyd.nix
     ./services/fwupd.nix
     ./services/greetd.nix
+    ./services/keyd.nix
     ./services/kmscon.nix
+    ./services/lightdm.nix
     ./services/sddm.nix
     ./services/ssh.nix
-
     ./system/audio.nix
     ./system/base.nix
+    ./system/desktoputils.nix
     ./system/networking.nix
     ./system/utils.nix
-    ./system/desktoputils.nix
   ];
 }

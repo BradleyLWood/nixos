@@ -66,7 +66,15 @@
   features.custom.openscad.enable = true;
   features.custom.starship.enable = true;
   features.custom.steam.enable = true;
-  features.custom.zsh.enable = true;
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
+  features.custom.zsh.enable = true;
+  services.custom.fwupd.enable = true;
+  services.custom.greetd.enable = true;
+  services.custom.keyd.enable = true;
+  services.custom.kmscon.enable = true;
+  services.custom.lightdm.enable = false;
+  services.custom.sddm.enable = false;
+  services.custom.ssh.enable = true;
+  system.custom.desktoputils.enable = true;
 }
