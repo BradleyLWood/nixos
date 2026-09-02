@@ -46,15 +46,6 @@
 
   networking.hostName = "paconix";
 
-  services.custom.keyd.enable = true;
-  services.custom.fwupd.enable = true;
-  services.custom.greetd.enable = true;
-  services.custom.kmscon.enable = true;
-  services.custom.sddm.enable = false;
-  services.custom.ssh.enable = true;
-
-  system.custom.desktoputils.enable = true;
-
   features.custom.bitwarden.enable = true;
   features.custom.calibre.enable = true;
   features.custom.desktop.enable = true;
