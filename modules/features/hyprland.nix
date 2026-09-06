@@ -28,18 +28,27 @@
       enable = true;
       settings = {
         global = {
-          width = 300;
-          height = 300;
-          offset = "10x50";
+          width = 500;
+          offset = "(10 50)";
           origin = "top-right";
-          transparency = 10;
           frame_color = "#cba6f7";
-          font = "Monospace 10";
+          corner_radius = 10;
+          font = "FiraCode Nerd Font 12";
+        };
+        urgency_low = {
+            background = "#1e1e2e";
+            foreground = "#cdd6f4";
+            timeout = 10;
         };
         urgency_normal = {
           background = "#1e1e2e";
           foreground = "#cdd6f4";
-          timeout = 10;
+          timeout = 30;
+        };
+        urgency_critical = {
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+          timeout = 120;
         };
       };
     };

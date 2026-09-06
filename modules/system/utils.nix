@@ -9,6 +9,7 @@
     eza
     fastfetch
     fzf
+    libnotify
     lsof
     navi
     procs
