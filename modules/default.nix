@@ -11,6 +11,7 @@
     ./features/neomutt.nix
     ./features/obsidian.nix
     ./features/openscad.nix
+    ./features/orcaslicer.nix
     ./features/printing.nix
     ./features/prismlauncher.nix
     ./features/starship.nix
