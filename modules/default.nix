@@ -21,6 +21,7 @@
     ./features/yazi.nix
     ./features/zellij.nix
 
+    ./services/flatpak.nix
     ./services/fwupd.nix
     ./services/greetd.nix
     ./services/keyd.nix

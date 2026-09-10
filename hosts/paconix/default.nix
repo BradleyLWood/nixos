@@ -65,6 +65,7 @@
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
   features.custom.zsh.enable = true;
+  services.custom.flatpak.enable = true;
   services.custom.fwupd.enable = true;
   services.custom.greetd.enable = true;
   services.custom.keyd.enable = true;
