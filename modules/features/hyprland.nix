@@ -14,9 +14,9 @@
 
     xdg.portal = {
       enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-gtk
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
       ];
     };
 
@@ -36,9 +36,9 @@
           font = "FiraCode Nerd Font 12";
         };
         urgency_low = {
-            background = "#1e1e2e";
-            foreground = "#cdd6f4";
-            timeout = 10;
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+          timeout = 10;
         };
         urgency_normal = {
           background = "#1e1e2e";
