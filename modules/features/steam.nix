@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.features.custom.steam.enable = lib.mkEnableOption "Enable steam";

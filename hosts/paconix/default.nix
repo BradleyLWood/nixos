@@ -53,6 +53,7 @@
   features.custom.devtools.enable = true;
   features.custom.gnome.enable = false;
   features.custom.diskutils.enable = true;
+  features.custom.faugus.enable = true;
   features.custom.helix.enable = true;
   features.custom.hyprland.enable = true;
   features.custom.neomutt.enable = true;

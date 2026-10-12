@@ -6,6 +6,7 @@
     ./features/devtools.nix
     ./features/gnome.nix
     ./features/diskutils.nix
+    ./features/faugus.nix
     ./features/helix.nix
     ./features/hyprland.nix
     ./features/neomutt.nix
@@ -20,7 +21,6 @@
     ./features/xdg.nix
     ./features/yazi.nix
     ./features/zellij.nix
-
     ./services/flatpak.nix
     ./services/fwupd.nix
     ./services/greetd.nix
