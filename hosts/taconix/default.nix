@@ -17,6 +17,11 @@
     };
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   networking.hostName = "taconix";
 
   features.custom.bitwarden.enable = true;
@@ -25,6 +30,7 @@
   features.custom.devtools.enable = true;
   features.custom.gnome.enable = true;
   features.custom.diskutils.enable = false;
+  features.custom.faugus.enable = false;
   features.custom.helix.enable = true;
   features.custom.hyprland.enable = true;
   features.custom.neomutt.enable = true;
@@ -38,6 +44,7 @@
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
   features.custom.zsh.enable = true;
+  services.custom.blueman.enable = true;
   services.custom.flatpak.enable = true;
   services.custom.fwupd.enable = true;
   services.custom.greetd.enable = true;
