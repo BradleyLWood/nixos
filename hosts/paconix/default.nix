@@ -26,7 +26,15 @@
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # Resolves wake-from-sleep lag common with high-polling-rate mice
+        Experimental = true;
+        # Forces bluez to keep a stable profile bond with the multi-button input
+        UserspaceHID = true;
+      };
+    };
   };
 
   networking.hostName = "paconix";

@@ -18,7 +18,6 @@
     tmux
     usbutils
     zoxide
-    inputs.eilmeldung.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.herdr.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
