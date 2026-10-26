@@ -17,9 +17,19 @@
     };
   };
 
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
+  };
+
+  environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      EDITOR = "vim";
   };
 
   networking.hostName = "taconix";
@@ -41,6 +51,7 @@
   features.custom.printing.enable = true;
   features.custom.starship.enable = true;
   features.custom.steam.enable = true;
+  features.custom.wowup.enable = false;
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
   features.custom.zsh.enable = true;

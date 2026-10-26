@@ -26,6 +26,7 @@
 
     environment.systemPackages = with pkgs; [
       kitty
+      firefox
       ghostty
       inputs.otter-launcher.packages.${pkgs.stdenv.hostPlatform.system}.default
       google-chrome

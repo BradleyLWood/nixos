@@ -22,22 +22,12 @@
     type = null;
   };
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    EDITOR = "vim";
-  };
-
   # To search, run: $ nix search <package-name>
   environment.systemPackages = with pkgs; [
     vim
     wget
     git
   ];
-
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
 
   services.xserver.xkb = {
     layout = "us";
@@ -47,7 +37,7 @@
   users.users."bradley" = {
     isNormalUser = true;
     description = "Bradley Wood";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "video" "render"];
     shell = pkgs.zsh;
     linger = true; # for background  timers/services
   };
@@ -55,7 +45,7 @@
   users.users."eliana" = {
     isNormalUser = true;
     description = "Eliana Wood";
-    extraGroups = ["networkmanager"];
+    extraGroups = ["networkmanager" "video" "render"];
     shell = pkgs.zsh;
   };
 

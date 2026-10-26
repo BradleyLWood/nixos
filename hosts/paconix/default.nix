@@ -1,4 +1,4 @@
-{config, ...}: {
+{pkgs, ...}: {
   imports = [
     ./hardware_configuration.nix
     ../../modules
@@ -14,7 +14,7 @@
       efiSupport = true;
       device = "nodev";
       efiInstallAsRemovable = true;
-      #gfxmodeEfi = "2560x1440";
+      gfxmodeEfi = "2560x1440";
     };
   };
 
@@ -37,6 +37,12 @@
     };
   };
 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+    NIXOS_OZONE_WL = "1";
+    EDITOR = "vim";
+  };
+
   networking.hostName = "paconix";
 
   features.custom.bitwarden.enable = true;
@@ -56,6 +62,7 @@
   features.custom.printing.enable = true;
   features.custom.starship.enable = true;
   features.custom.steam.enable = true;
+  features.custom.wowup.enable = true;
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
   features.custom.zsh.enable = true;
