@@ -1,6 +1,8 @@
 {
   imports = [
+    ./features/appimage.nix
     ./features/bitwarden.nix
+    ./features/bottles.nix
     ./features/calibre.nix
     ./features/desktop.nix
     ./features/devtools.nix

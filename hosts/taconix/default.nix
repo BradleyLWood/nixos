@@ -34,7 +34,9 @@
 
   networking.hostName = "taconix";
 
+  features.custom.appimage.enable = false;
   features.custom.bitwarden.enable = true;
+  features.custom.bottles.enable = true;
   features.custom.calibre.enable = true;
   features.custom.desktop.enable = true;
   features.custom.devtools.enable = true;
