@@ -47,7 +47,6 @@
 
   features.custom.appimage.enable = true;
   features.custom.bitwarden.enable = true;
-  features.custom.bottles.enable = true;
   features.custom.calibre.enable = true;
   features.custom.desktop.enable = true;
   features.custom.devtools.enable = true;
@@ -68,6 +67,7 @@
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
   features.custom.zsh.enable = true;
+  features.custom.qemu.enable = true;
   services.custom.blueman.enable = true;
   services.custom.flatpak.enable = true;
   services.custom.fwupd.enable = true;

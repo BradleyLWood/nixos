@@ -2,7 +2,6 @@
   imports = [
     ./features/appimage.nix
     ./features/bitwarden.nix
-    ./features/bottles.nix
     ./features/calibre.nix
     ./features/desktop.nix
     ./features/devtools.nix
@@ -24,6 +23,7 @@
     ./features/xdg.nix
     ./features/yazi.nix
     ./features/zellij.nix
+    ./features/qemu.nix
     ./services/blueman.nix
     ./services/flatpak.nix
     ./services/fwupd.nix
