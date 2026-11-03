@@ -12,6 +12,7 @@
     ./features/hyprland.nix
     ./features/neomutt.nix
     ./features/obsidian.nix
+    ./features/opencode.nix
     ./features/openscad.nix
     ./features/orcaslicer.nix
     ./features/printing.nix

@@ -47,6 +47,7 @@
   features.custom.neomutt.enable = true;
   features.custom.obsidian.enable = true;
   features.custom.openscad.enable = false;
+  features.custom.opencode.enable = true;
   features.custom.orcaslicer.enable = true;
   features.custom.prismlauncher.enable = false;
   features.custom.printing.enable = true;
