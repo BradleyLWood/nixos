@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: {
-  options.features.custom.TEMPLATE.enable = lib.mkEnableOption "Enable TEMPLATE";
-  config = lib.mkIf config.features.custom.TEMPLATE.enable {
+  options.features.custom.template.enable = lib.mkEnableOption "Enable template";
+  config = lib.mkIf config.features.custom.template.enable {
     environment.systemPackages = with pkgs; [
-      TEMPLATE
+      template
     ];
   };
 }

@@ -17,6 +17,7 @@
     ./features/orcaslicer.nix
     ./features/printing.nix
     ./features/prismlauncher.nix
+    ./features/w3m.nix
     ./features/wowup.nix
     ./features/starship.nix
     ./features/steam.nix

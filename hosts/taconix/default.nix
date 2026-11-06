@@ -53,6 +53,7 @@
   features.custom.printing.enable = true;
   features.custom.starship.enable = true;
   features.custom.steam.enable = true;
+  features.custom.w3m.enable = true;
   features.custom.wowup.enable = false;
   features.custom.yazi.enable = true;
   features.custom.zellij.enable = true;
